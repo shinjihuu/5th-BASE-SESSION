@@ -59,3 +59,6 @@ class VGG(nn.Module):
         #print(x.shape)
         x = self.fc_layer(x)
         return x # 클래스 확률을 나타내는 최종 출력 반환
+
+# Reference
+# https://velog.io/@euisuk-chung/%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98-%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98%EB%A1%9C-CNN-%EB%AA%A8%EB%8D%B8%EC%9D%84-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EC%9E%90-VGGNet%ED%8E%B8
