@@ -35,3 +35,4 @@ plt.title('input')
 plt.subplot(133)
 plt.imshow(output, cmap = 'gray')
 plt.title('output')
+
