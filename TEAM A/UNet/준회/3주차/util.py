@@ -27,3 +27,4 @@ def load(ckpt_dir, net, optim):
     epoch = int(ckpt_lst[-1].split('epoch')[1].split('.pth')[0])
 
     return net, optim, epoch
+
