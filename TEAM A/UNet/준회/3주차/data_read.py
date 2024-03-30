@@ -82,6 +82,8 @@ plt.subplot(121)
 plt.imshow(label_, cmap = 'gray')
 plt.title('label')
 
+
+
 plt.subplot(122)
 plt.imshow(input_, cmap = 'gray')
 plt.title('input')
