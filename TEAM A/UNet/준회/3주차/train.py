@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from torchvision import transforms, datasets
-
 from model import Unet  # Model Architecture
 from dataset import *  # Dataset & Transform
 from util import *  # Save & Load
