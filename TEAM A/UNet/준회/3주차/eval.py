@@ -310,3 +310,4 @@ with torch.no_grad():
 
             print("Average Test : Batch %04d / %04d | Loss %.4f" %
                     (batch, num_batch_test, np.mean(loss_arr)))
+
