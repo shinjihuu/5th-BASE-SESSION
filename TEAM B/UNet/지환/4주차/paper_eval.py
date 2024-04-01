@@ -1,4 +1,4 @@
-### X:AI 3주차 Code 과제
+### X:AI 4주차 Code 과제
 ### AI빅데이터융합경영 배지환 
 
 import os
