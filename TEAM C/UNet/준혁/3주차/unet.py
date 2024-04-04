@@ -4,7 +4,7 @@ import torch.nn as nn
 
 class UNet(nn.Module):
     def __init__(self):
-        super(UNET,self).__init__()
+        super(UNet,self).__init__()
 
         def CBR2d(in_ch,out_ch,kernel_size=3, stride=1, padding=1, bias=True): # No padding이 맞지 않을까?
             layers = []
