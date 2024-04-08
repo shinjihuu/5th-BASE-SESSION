@@ -114,6 +114,8 @@ class Unet(nn.Module):
         unpool1 = self.unpool1(dec2_1)
         cat2 = torch.cat([unpool1, enc1_2], dim = 1)
         dec1_2 = self.dec1_2(cat2)
+
+        
         dec1_1 = self.dec1_1(dec1_2)
 
         fc = self.fc(dec1_1)
