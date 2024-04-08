@@ -15,7 +15,7 @@ from torchvision import transforms
 
 from tqdm.notebook import tqdm
 
-
+from Unet import Unet
 
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 device = torch.device(device)
@@ -87,9 +87,44 @@ class CityscapeDataset(Dataset):
     return cityscape, label_class
 
 
+## 실제로 train 하는 부분 ## 
+batch_size = 16
+epochs = 10
+lr = 0.01
+
+dataset = CityscapeDataset(train_dir, label_model)
+data_loader = DataLoader(dataset, batch_size = batch_size)
+
+model = Unet(num_classes = num_classes).to(device)
+
+# 손실함수 정의
+criterion = nn.CrossEntropyLoss()
+# Optimizer 정의
+optimizer = optim.Adam(model.parameters(), lr = lr)
+
+step_losses = []
+epoch_losses = []
+
+for epoch in tqdm(range(epochs)):
+  epoch_loss = 0
+  for X,Y in tqdm(data_loader, total=len(data_loader), leave = False):
+    X, Y = X.to(device), Y.to(device)
+    optimizer.zero_grad()
+    Y_pred = model(X)
+    loss = criterion(Y_pred, Y)
+    loss.backward()
+    optimizer.step()
+    epoch_loss += loss.item()
+    step_losses.append(loss.item())
+  epoch_losses.append(epoch_loss/len(data_loader))
 
 
+root_dir = "working/"
 
+# 모델 파일 경로 설정
+model_name = "Unet.pth"
+model_path = os.path.join(root_dir, model_name)
+torch.save(net.state_dict(), model_path)
 
 
 
